@@ -1,0 +1,9 @@
+<template>
+  <require from="./nav-bar"></require>
+  <div class="main">
+    <nav-bar class="navigation" router.bind="router"></nav-bar>
+    <div class="page-host">
+      <router-view style="display:flex;flex-grow:1"></router-view>
+    </div>
+  </div>
+</template>

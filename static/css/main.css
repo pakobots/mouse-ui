@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto';
+  /* Added for blockly right clicks. They cause a scrollbar to show.*/
+  overflow:hidden;
+}
+
+section{
+  flex-grow: 1;
+  display: flex;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.splash {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+  width:100%;
+}
+
+.main .page-host{
+  display:flex;
+  flex-grow:1;
+}

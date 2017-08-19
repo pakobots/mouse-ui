@@ -1,0 +1,18 @@
+.about {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.about .body {
+  text-align: center;
+}
+
+.about .title{
+  font-size:2em;
+}
+
+.about .title img{
+  width:250px;
+}

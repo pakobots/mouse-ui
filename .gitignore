@@ -1,0 +1,12 @@
+node_modules
+.DS_STORE
+npm-debug.log*
+yarn-error.log
+/www
+/test/*coverage
+/test/coverage*
+/.chrome
+/release
+/plugins
+/platforms
+/hooks
