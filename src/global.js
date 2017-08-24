@@ -39,8 +39,8 @@ export default {
         let ip = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
         this.wifi.ip = ip;
         this.wifi.enabled = true;
-        resolve(ip);
         pc.onicecandidate = noop;
+        resolve(ip);
       };
     });
   },

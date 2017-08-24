@@ -65,11 +65,9 @@ export class Scan {
     this.scanning = true;
     this.bots = [];
     return Promise.all([
-      // global.scanWifi(this.bots),
+      global.scanWifi(this.bots),
       global.scanBT(this.bots)
-    ]).then((res) => {
-      console.log(res);
-    }).catch((err) => {
+    ]).catch((err) => {
       console.log(err);
     }).then(() => {
       this.scanning = false;
