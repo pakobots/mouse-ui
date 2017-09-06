@@ -41,6 +41,7 @@ export class Scan {
   }
 
   connect(bot) {
+    console.log(bot);
     this.robot.meta = bot;
     this.robot.connection = undefined;
     if (bot.mode == 'wifi') {

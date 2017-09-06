@@ -17,14 +17,17 @@
   <script src="cordova.js"></script>
 </head>
 
-<body aurelia-app="main">
-  <div class="splash">
-    <img src="img/logo-vert.png" />
+<body>
+  <div aurelia-app="main" style="height:100%;">
+    <div class="splash">
+      <img src="img/logo-vert.png" />
+    </div>
+    <% if (htmlWebpackPlugin.options.metadata.server) { %>
+      <!-- Webpack Dev Server reload -->
+      <script src="/webpack-dev-server.js"></script>
+      <% } %>
   </div>
-  <% if (htmlWebpackPlugin.options.metadata.server) { %>
-    <!-- Webpack Dev Server reload -->
-    <script src="/webpack-dev-server.js"></script>
-    <% } %>
+  <footer>© 2017 <a href="http://invent.pakobots.com" target="_blank"><strong>Pako Bots division of Origami 3</strong></a>. All Rights Reserved</footer>
 </body>
 
 </html>

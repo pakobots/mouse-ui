@@ -74,7 +74,7 @@ export default {
       : [];
     let ip = this.wifi.ip.substr(0, this.wifi.ip.lastIndexOf('\.') + 1);
     let promises = [];
-    for (let i = 0; i < 255; i++) {
+    for (let i = 1; i < 255; i++) {
       promises.push(this.chkIP(ip + i, bots));
     }
     return Promise.all(promises).then((data) => {

@@ -19,7 +19,7 @@
     "prod": "NODE_ENV=production webpack --progress -p --env.production --env.extractCss",
     "dev": "webpack --progress",
     "dev-watch": "webpack --progress --watch",
-    "serve":"webpack-dev-server -d --inline --env.server"
+    "serve": "webpack-dev-server -d --inline --env.server"
   },
   "jest": {
     "modulePaths": [

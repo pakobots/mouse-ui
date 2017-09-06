@@ -16,7 +16,7 @@ export default class RobotWS {
   }
 
   connect(url) {
-    this.ws = new WebSocket(url);
+    this.ws = new WebSocket(url ? url : this.url);
 
     this.ws.addEventListener('message', (data) => {
       // console.log(data);
