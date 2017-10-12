@@ -8,8 +8,6 @@ export class Scan {
     this.bots = [];
     this.scanning = false;
     this.robot = global.robot;
-    // this.scanWifi();
-    this.scan();
     this.icons = [
       'img/robots/png/battery.png',
       'img/robots/png/cpu.png',
@@ -81,5 +79,7 @@ export class Scan {
     }
     global.robot.connection = undefined;
     global.robot.meta = undefined;
+
+    this.scan();
   }
 }

@@ -43,6 +43,7 @@ export default class RobotWS {
 
   close(){
     this.ws.close();
+    return Promise.resolve();
   }
 
   name() {

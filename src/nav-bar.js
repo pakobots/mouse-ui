@@ -11,4 +11,11 @@ export class NavBar {
     }
     location.hash = link;
   }
+
+  chk(wantToGo, mayHaveToHitFirst) {
+    if (global.robot.connection) {
+      return location.hash = mayHaveToHitFirst;
+    }
+    location.hash = wantToGo;
+  }
 }

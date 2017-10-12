@@ -4,8 +4,7 @@ import JoyStick from 'nipplejs';
 import global from 'global';
 
 export class Drive {
-  constructor() {
-  }
+  constructor() {}
 
   attached() {
     this.robot = global.robot.connection;
@@ -16,11 +15,14 @@ export class Drive {
     }, 1000);
     this.setupMotor();
     this.setupLight();
+    this.robot.speed(0, 0);
+    this.debounce = 0;
   }
 
   detached() {
-    console.log('detached drive');
     clearInterval(this.interval);
+    this.robot.speed(0, 0);
+    console.log('detached drive');
   }
 
   setupLight() {
@@ -34,7 +36,11 @@ export class Drive {
   }
 
   setupMotor() {
-    let manager = JoyStick.create({zone: this.motorCtrl, color: '#333333', size: 200});
+    let manager = JoyStick.create({
+      zone: this.motorCtrl,
+      color: '#333333',
+      size: 200
+    });
     let ready = true;
     let d = 0;
     let left = 0;
@@ -45,14 +51,18 @@ export class Drive {
         left = data.distance;
         right = data.distance;
         if (d > 270 || d < 90) {
-          left *= (d > 270
-            ? 360 - d
-            : d) / 90;
+          left *= (d > 270 ?
+            360 - d :
+            d) / 90;
         } else if (d > 90 && d < 270) {
-          right *= (d > 180
-            ? d - 180
-            : 180 - d) / 90;
+          right *= (d > 180 ?
+            d - 180 :
+            180 - d) / 90;
         }
+        if (this.debounce > Date.now()) {
+          return;
+        }
+        this.debounce = Date.now() + 100;
         this.robot.speed(Math.round(left), Math.round(right));
       });
       nipple.on('end', () => {

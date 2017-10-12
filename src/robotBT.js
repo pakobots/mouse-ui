@@ -25,7 +25,7 @@ export default class RobotBT {
   }
 
   close() {
-    this.bt.disconnect(this.device);
+    return this.bt.disconnect(this.device);
   }
 
   name() {

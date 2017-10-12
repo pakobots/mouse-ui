@@ -25,6 +25,12 @@ export class App {
         nav: true,
         title: 'Drive'
       }, {
+        route: 'disconnect',
+        name: 'disconnect',
+        moduleId: PLATFORM.moduleName('./disconnect'),
+        nav: true,
+        title: 'Disconnecting'
+      }, {
         route: 'about',
         name: 'about',
         moduleId: PLATFORM.moduleName('./about'),

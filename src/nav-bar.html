@@ -7,14 +7,14 @@
     </div>
     <div class="links-constrained links-menu" show.bind="showMenu" click.delegate="showMenu = !showMenu">
       <div class="link-set">
-        <div class="link" onclick="location.hash='#/scan'"><i class="fa fa-wifi"></i><span>connect</span></div>
+        <div class="link" click.delegate="chk('#/scan','#/disconnect')"><i class="fa fa-wifi"></i><span>connect</span></div>
         <a class="link" click.delegate="lnk('#/drive')" class.bind="robot.connection ? '':'disabled'"><i class="fa fa-truck"></i><span>drive</span></a>
         <div class="link" click.delegate="lnk('#/code')" class.bind="robot.connection ? '':'disabled'"><i class="fa fa-code"></i><span>code</span></div>
         <div class="link" onclick="location.hash='#/about'"><i class="fa fa-info-circle"></i><span>about</span></div>
       </div>
     </div>
     <div class="links">
-      <div class="link" onclick="location.hash='#/scan'"><i class="fa fa-wifi"></i><span>connect</span></div>
+      <div class="link" click.delegate="chk('#/scan','#/disconnect')"><i class="fa fa-wifi"></i><span>connect</span></div>
       <a class="link" click.delegate="lnk('#/drive')" class.bind="robot.connection ? '':'disabled'"><i class="fa fa-truck"></i><span>drive</span></a>
       <div class="link" click.delegate="lnk('#/code')" class.bind="robot.connection ? '':'disabled'"><i class="fa fa-code"></i><span>code</span></div>
       <div class="link" onclick="location.hash='#/about'"><i class="fa fa-info-circle"></i><span>about</span></div>
