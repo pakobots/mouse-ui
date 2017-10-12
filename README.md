@@ -3,6 +3,7 @@
 ![OSI Certified](http://www.samurajdata.se/opensource/mirror/trademarks/osi-certified/web/osi-certified-90x75.png)
 
 This software is OSI Certified Open Source Software.
+
 OSI Certified is a certification mark of the Open Source Initiative.
 
 ## Getting started
