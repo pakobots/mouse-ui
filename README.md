@@ -1,5 +1,9 @@
 # Pako Bots UI (web and phone)
 
+![OSI Certified](http://www.samurajdata.se/opensource/mirror/trademarks/osi-certified/web/osi-certified-90x75.png)
+This software is OSI Certified Open Source Software.
+OSI Certified is a certification mark of the Open Source Initiative.
+
 ## Getting started
 
 Before you start, make sure you have a recent version of [NodeJS](http://nodejs.org/) environment *>=6.0* with NPM 3 or Yarn. If building for the phone, please ensure the latest version of the [Cordova](https://cordova.apache.org/#getstarted) installed.
