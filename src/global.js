@@ -26,6 +26,16 @@ export default {
       port: 80
     }
   },
+  upgrade(){
+    // http.fetch('http://localhost:8080/robot.bin').then((data)=>data.arrayBuffer()).then((data)=>{
+    //   http.fetch('http://10.1.1.122/upgrade/'+data.byteLength,{
+    //     method: 'post',
+    //     body: data
+    //   });
+    // }).catch((err)=>{
+    //   console.log(err);
+    // });
+  },
   getCapabilities() {},
   getLocalIP() {
     return new Promise((resolve, reject) => {
@@ -88,10 +98,16 @@ export default {
         return bots;
       });
     }
+
     let ip = this.wifi.ip.substr(0, this.wifi.ip.lastIndexOf('\.') + 1);
     let promises = [];
-    for (let i = 1; i < 255; i++) {
-      promises.push(this.chkIP(ip + i, bots));
+
+    if (this.wifi.ip.indexOf('192.168.4') == 0) {
+      promises.push(this.chkIP('192.168.4.1', bots));
+    } else {
+      for (let i = 1; i < 250; i++) {
+        promises.push(this.chkIP(ip + i, bots));
+      }
     }
     return Promise.all(promises).then((data) => {
       return data.filter((item) => item != undefined);

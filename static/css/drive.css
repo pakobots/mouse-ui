@@ -4,6 +4,8 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 800px;
+  margin: auto;
 }
 
 .drive .nipple .back {
@@ -13,16 +15,34 @@
 .drive .control {
   height: 200px;
   width: 200px;
-  border: 2px dashed gray;
+  border: 2px dashed #9b59b6;
   margin: 2em;
   border-radius: 50%;
   position: relative;
+  box-shadow: 10px 10px 40px -5px #333;
 }
 
 .drive .control-light {
   background-image: url('../img/cwheel.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.drive .tiles {
+  width: 250px;
+  height: 250px;
+  margin-right: 2em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.drive .color-tile {
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  border: 0;
+  margin: 2%;
+  box-shadow: 3px 3px 10px -2px #2d3035;
 }
 
 .drive .control-light-opacity {
@@ -50,8 +70,8 @@
   justify-content: center;
 }
 
-@media (min-width:600px){
-  .drive div:first-child {
+@media (min-width:600px) {
+  .drive .ctrl1 {
     flex-grow: 1;
   }
 }

@@ -1,4 +1,6 @@
-import {HttpClient} from 'aurelia-fetch-client';
+import {
+  HttpClient
+} from 'aurelia-fetch-client';
 let http = new HttpClient();
 
 export default class Robot {
@@ -7,7 +9,7 @@ export default class Robot {
   }
 
   name() {
-    return http.fetch(this.url + '/robot/name').then((data) => data.json());
+    return this.device.name;
   }
 
   speed(leftPwr, rightPwr) {
@@ -19,21 +21,21 @@ export default class Robot {
     return http.fetch(this.url + '/motor/speed/' + rightPwr + '/' + leftPwr);
   }
 
-  stop(){
+  stop() {
     return http.fetch(this.url + '/motor/stop');
   }
 
   forward(fwd) {
     console.log('forward', fwd);
-    return http.fetch(this.url + '/motor/' + (fwd
-      ? 'forward'
-      : 'backward'));
+    return http.fetch(this.url + '/motor/' + (fwd ?
+      'forward' :
+      'backward'));
   }
 
   light(color, on) {
     // return http.fetch(this.url+'/light/blue/on');
-    return http.fetch(this.url + '/light/' + color + '/' + (on
-      ? 'on'
-      : 'off'));
+    return http.fetch(this.url + '/light/' + color + '/' + (on ?
+      'on' :
+      'off'));
   }
 }

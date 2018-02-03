@@ -43,12 +43,12 @@ export class Scan {
     this.robot.meta = bot;
     this.robot.connection = undefined;
     if (bot.mode == 'wifi') {
-      this.robot.connection = new RobotWS('ws:' + bot.ip + ':9998');
-    }else{
+      this.robot.connection = new RobotWS('ws:' + bot.ip + ':9998','ws:' + bot.ip + ':9999', bot);
+    } else {
       this.robot.connection = new RobotBT(bot.device);
     }
-    this.robot.connection.connect().then((connection)=>{
-      location.hash='#/drive';
+    this.robot.connection.connect().then((connection) => {
+      location.hash = '#/drive';
     });
   }
 
@@ -69,17 +69,21 @@ export class Scan {
     ]).catch((err) => {
       console.log(err);
     }).then(() => {
+      console.log(JSON.stringify(this.bots, null, 2));
       this.scanning = false;
     })
   }
 
   attached() {
+    this.scanning = true;
     if (global.robot.connection) {
       global.robot.connection.close();
     }
     global.robot.connection = undefined;
     global.robot.meta = undefined;
 
-    this.scan();
+    setTimeout(() => {
+      this.scan();
+    }, 500);
   }
 }

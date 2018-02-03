@@ -6,7 +6,7 @@ export class App {
     config.map([
       {
         route: [
-          '', 'scan'
+          '','scan'
         ],
         name: 'scan',
         moduleId: PLATFORM.moduleName('./scan'),
@@ -15,7 +15,7 @@ export class App {
       }, {
         route: 'code',
         name: 'code',
-        moduleId: PLATFORM.moduleName('./code'),
+        moduleId: PLATFORM.moduleName('./code-monaco'),
         nav: true,
         title: 'Code'
       }, {
@@ -30,6 +30,18 @@ export class App {
         moduleId: PLATFORM.moduleName('./disconnect'),
         nav: true,
         title: 'Disconnecting'
+      }, {
+        route: 'settings',
+        name: 'settings',
+        moduleId: PLATFORM.moduleName('./settings'),
+        nav: true,
+        title: 'Settings'
+      },{
+        route: 'api',
+        name: 'api',
+        moduleId: PLATFORM.moduleName('./api'),
+        nav: true,
+        title: 'API'
       }, {
         route: 'about',
         name: 'about',

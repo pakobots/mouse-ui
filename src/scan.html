@@ -1,19 +1,17 @@
 <template>
 <section class="au-animate scan">
   <div class="list" show.bind="!robot.meta">
-    <div class="scan-icon" show.bind="scanning">
-      <div class="cssload-box-loading"></div>
-    </div>
-    <div class="scan-icon" click.delegate="scan()" show.bind="!scanning"><i class="fa fa-refresh"></i></div>
-    <div show.bind="!bots.length">No robots available</div>
-    <div click.delegate="connect(bot)" class="bot" repeat.for="bot of bots">
+    <div class="scan-icon btn scan-icon-disabled" show.bind="scanning"><i class="fa fa-asterisk fa-spin"></i></div>
+    <div class="scan-icon btn" click.delegate="scan()" show.bind="!scanning"><i class="fa fa-refresh"></i></div>
+    <h3 show.bind="!bots.length">Scanning for robots...</h3>
+    <div click.delegate="connect(bot)" class="bot btn" repeat.for="bot of bots">
       <img src="${randomIcon()}" /> <span class="name">${bot.name}</span> <span><i class="fa" class.bind="bot.mode=='wifi' ? 'fa-wifi':'fa-bluetooth-b'"></i><!--(${bot.ip})--></span>
     </div>
   </div>
   <div class="list connect" show.bind="robot.meta">
-    <div class="scan-icon">
+    <!-- <div class="scan-icon">
       <div class="cssload-box-loading"></div>
-    </div>
+    </div> -->
     <div class="bot">
       <img src="${randomIcon()}" /> <span class="name">${robot.meta.name}</span> <span><i class="fa" class.bind="robot.meta.mode=='wifi' ? 'fa-wifi':'fa-bluetooth-b'"></i><!--(${robot.meta.ip})--></span>
     </div>

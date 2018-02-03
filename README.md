@@ -1,6 +1,6 @@
 # Pako Bots UI (web and phone)
 
-![OSI Certified](http://www.samurajdata.se/opensource/mirror/trademarks/osi-certified/web/osi-certified-90x75.png)
+![OSI Certified](https://origami3.com/osi_keyhole_100X100_90ppi.png)
 
 OSI Certified Open Source Software
 

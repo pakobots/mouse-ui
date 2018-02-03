@@ -9,42 +9,34 @@
   justify-content: center;
 }
 
-.scan .btn {
-  font-size: 1em;
-  margin: 1em;
-  background-color: white;
-  border: 1px solid #BDBDBD;
-  padding: 1em;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
 .scan .btn:hover {
   color: #0e7ece;
 }
 
 .scan .scan-icon {
-  position: relative;
-  height: 100px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.scan .scan-icon i {
-  font-size: 35px;
-  color: #0e7ece;
+.scan .scan-icon-disabled {
+  border: 0;
+  box-shadow: none;
+  color: #b144bc;
 }
 
 .scan .bot {
-  cursor: pointer;
   display: flex;
   align-items: center;
   width: 100%;
   padding: 1em;
-  border-bottom: 1px solid #bdbdbd;
-}
-
-.scan .bot:hover {
-  color: #0e7ece;
-  border-color: #0e7ece;
+  border-width: 2px;
+  min-height: 50px;
+  border-color: #49acfe;
 }
 
 .scan .bot img {
@@ -55,6 +47,7 @@
 .scan .bot .name {
   font-size: 3em;
   flex-grow: 1;
+  font-weight: 300;
 }
 
 .scan .connect .bot {

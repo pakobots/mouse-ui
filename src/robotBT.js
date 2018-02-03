@@ -29,7 +29,7 @@ export default class RobotBT {
   }
 
   name() {
-    return {name: this.device.name};
+    return this.device.name;
   }
 
   speed(leftPwr, rightPwr) {
@@ -41,19 +41,23 @@ export default class RobotBT {
     this._send('S' + rightPwr + '|' + leftPwr);
   }
 
+  color(red, green, blue) {
+    this._send('C' + red + '|' + green + '|' + blue);
+  }
+
   stop() {
     this._send('MS');
   }
 
   forward(fwd) {
-    this._send('M' + (fwd
-      ? 'F'
-      : 'B'));
+    this._send('M' + (fwd ?
+      'F' :
+      'B'));
   }
 
   light(color, on) {
-    this._send('L' + color.toUpperCase() + (on
-      ? '1'
-      : '0'));
+    this._send('L' + color.toUpperCase() + (on ?
+      '1' :
+      '0'));
   }
 }

@@ -13,12 +13,35 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="cm/lib/codemirror.css">
+  <link rel="stylesheet" href="cm/addon/fold/foldgutter.css">
+  <link rel="stylesheet" href="cm/addon/lint/lint.css">
+  <link rel="stylesheet" href="cm/addon/dialog/dialog.css">
+  <link rel="stylesheet" href="cm/addon/hint/show-hint.css">
+  <link rel="stylesheet" href="cm/addon/tern/tern.css">
   <meta name="theme-color" content="#ffffff">
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .splash {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
   <script src="cordova.js"></script>
 </head>
 
 <body>
-  <div aurelia-app="main" style="height:100%;">
+  <div aurelia-app="main" style="width:100%;height:100%;">
     <div class="splash">
       <img src="img/logo-vert.png" />
     </div>
@@ -27,7 +50,13 @@
       <script src="/webpack-dev-server.js"></script>
       <% } %>
   </div>
-  <footer></footer>
+
+  <script src="monaco-editor/min/vs/loader.js"></script>
+  <script>
+    var monacoEditor = {};
+    require.config({ paths: { 'vs': 'monaco-editor/min/vs' } });
+    require(['vs/editor/editor.main'], function() { monacoEditor = monaco; });
+  </script>
 </body>
 
 </html>

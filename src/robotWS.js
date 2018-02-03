@@ -1,53 +1,67 @@
-import {HttpClient} from 'aurelia-fetch-client';
+import {
+  HttpClient
+} from 'aurelia-fetch-client';
 let http = new HttpClient();
 
 export default class RobotWS {
-  constructor(url, connectedCallback) {
+  constructor(txURL, rxURL, device, connectedCallback) {
     this.comm = false;
-    this.ws = undefined;
-    this.url = url;
+    this.tx = undefined;
+    this.rx = undefined;
+    this.txURL = txURL;
+    this.rxURL = rxURL;
+    this.device = device;
   }
 
   _send(cmd) {
     if (!this.comm) {
       return;
     }
-    this.ws.send(cmd);
+    this.tx.send(cmd);
+  }
+
+  _recv(data) {
+    console.log(data);
   }
 
   connect(url) {
-    this.ws = new WebSocket(url ? url : this.url);
+    if (this.rxURL) {
+      this.rx = new WebSocket(this.rxURL);
+      this.rx.addEventListener('message', this._recv);
+    }
 
-    this.ws.addEventListener('message', (data) => {
-      // console.log(data);
-    });
-
-    return new Promise((resolve,reject)=>{
-      this.ws.addEventListener('open', () => {
+    this.tx = new WebSocket(url ? url : this.txURL);
+    return new Promise((resolve, reject) => {
+      this.tx.addEventListener('open', () => {
         this.comm = true;
         console.log('we are ready to send messages');
         resolve();
       });
 
-      this.ws.addEventListener('error', (data) => {
+      this.tx.addEventListener('error', (data) => {
         console.log('websocket error', data);
         reject(data);
       });
 
-      this.ws.addEventListener('close', () => {
-        console.log('websocket closed');
+      this.tx.addEventListener('close', (data) => {
+        console.log('websocket closed!!');
         reject(data);
       });
     });
   }
 
-  close(){
-    this.ws.close();
+  close() {
+    if (this.tx) {
+      this.tx.close();
+    }
+    if (this.rx) {
+      this.rx.close();
+    }
     return Promise.resolve();
   }
 
   name() {
-    return http.fetch(this.url + '/robot/name').then((data) => data.json());
+    return this.device.name;
   }
 
   speed(leftPwr, rightPwr) {
@@ -59,19 +73,24 @@ export default class RobotWS {
     this._send('S' + rightPwr + '|' + leftPwr);
   }
 
+
+  color(red, green, blue) {
+    this._send('C' + red + '|' + green + '|' + blue);
+  }
+
   stop() {
     this._send('MS');
   }
 
   forward(fwd) {
-    this._send('M' + (fwd
-      ? 'F'
-      : 'B'));
+    this._send('M' + (fwd ?
+      'F' :
+      'B'));
   }
 
   light(color, on) {
-    this._send('L' + color.toUpperCase() + (on
-      ? '1'
-      : '0'));
+    this._send('L' + color.toUpperCase() + (on ?
+      '1' :
+      '0'));
   }
 }

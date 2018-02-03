@@ -1,37 +1,82 @@
+.code {
+    padding: 0;
+    height: 100%;
+    padding-left: 2em;
+}
+
+.code .monaco-editor .line-numbers {
+    color: #49acfe;
+}
+
 .code .display {
-  flex-grow: 1;
-  width: 100%;
-  height: 100%;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.code .editor {
+    position: absolute;
+    left: 0px;
+    top: 67px;
+    bottom: 200px;
+    right: 0px;
+    min-height: 500px;
+}
+
+.code .editor-helper-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.code .editor-helper-panel textarea {
+    padding: 5px;
+    border:0;
+}
+
+.CodeMirror {
+    height: 100%;
+}
+
+.monaco-inputbox input {
+    margin: 0;
 }
 
 h1 {
-  font-weight: normal;
-  font-size: 140%;
+    font-weight: normal;
+    font-size: 140%;
 }
 
 #blocklyDiv {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 100px;
-  bottom: 0px;
-  border-top:1px solid #cfcfcf;
+    width: 100%;
+    height: 100%;
 }
 
 #collaborators {
-  position: absolute;
-  width: 30px;
-  margin-left: 10px;
+    position: absolute;
+    width: 30px;
+    margin-left: 10px;
 }
 
 #collaborators>img {
-  margin-right: 5px;
-  height: 30px;
-  padding-bottom: 5px;
-  width: 30px;
-  border-radius: 3px;
+    margin-right: 5px;
+    height: 30px;
+    padding-bottom: 5px;
+    width: 30px;
+    border-radius: 3px;
 }
 
 #importExport {
-  font-family: monospace;
+    font-family: monospace;
+}
+
+@media (max-width: 800px) {
+    .code {
+        padding-left: 0;
+    }
 }

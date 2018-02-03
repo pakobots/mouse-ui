@@ -1,0 +1,127 @@
+<!--
+  This file is part of Pako Bots division of Origami 3 user interface.
+
+   Pako Bots division of Origami 3 user interface is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   Pako Bots division of Origami 3 user interface is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with Pako Bots division of Origami 3 user interface.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<template>
+  <section class="api">
+    <div class="body pad-1x">
+      <div class="pad-1x" hide.bind="ip=='UNKNOWN'">
+        <h2>Base URL: http://${ip}/</h2>
+        <h2>Light</h2>
+        <article>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Red light ON: </span>
+            <span click.delegate="cmd('/light/red/on')" class="uri btn btn-link">http://${ip}/light/red/on</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Red light OFF: </span>
+            <span click.delegate="cmd('/light/red/off')" class="uri btn btn-link">http://${ip}/light/red/off</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Blue light ON: </span>
+            <span click.delegate="cmd('/light/blue/on')" class="uri btn btn-link">http://${ip}/light/blue/on</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Blue light OFF: </span>
+            <span click.delegate="cmd('/light/blue/off')" class="uri btn btn-link">http://${ip}/light/blue/off</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Green light ON: </span>
+            <span click.delegate="cmd('/light/green/on')" class="uri btn btn-link">http://${ip}/light/green/on</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Green light OFF: </span>
+            <span click.delegate="cmd('/light/green/off')" class="uri btn btn-link">http://${ip}/light/green/off</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Color ON: </span>
+            <span click.delegate="cmd('/light/color/255/255/255')" class="uri btn btn-link">http://${ip}/light/color/255/255/255</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-lightbulb-o margin-right"></i>
+            </span>
+            <span class="title margin-right">Color OFF: </span>
+            <span click.delegate="cmd('/light/color/0/0/0')" class="uri btn btn-link">http://${ip}/light/color/0/0/0</span>
+          </div>
+        </article>
+        <h2>Motor</h2>
+        <span>Before the motors will move the forward or backward command must be sent.</span>
+        <article>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-chevron-right margin-right"></i>
+            </span>
+            <span class="title margin-right">Forward: </span>
+            <span click.delegate="cmd('/motor/forward')" class="uri btn btn-link">http://${ip}/motor/forward</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-chevron-left margin-right"></i>
+            </span>
+            <span class="title margin-right">Backward: </span>
+            <span click.delegate="cmd('/motor/backward')" class="uri btn btn-link">http://${ip}/motor/backward</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-tachometer margin-right"></i>
+            </span>
+            <span class="title margin-right">Motor Full Speed: </span>
+            <span click.delegate="cmd('/motor/speed/100/100')" class="uri btn btn-link">http://${ip}/motor/speed/100/100</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-tachometer margin-right"></i>
+            </span>
+            <span class="title margin-right">Motor 50% Speed: </span>
+            <span click.delegate="cmd('/motor/speed/50/50')" class="uri btn btn-link">http://${ip}/motor/speed/50/50</span>
+          </div>
+          <div class="flex flex-v-center pad-1x">
+            <span>
+              <i class="fa fa-ban margin-right"></i>
+            </span>
+            <span class="title margin-right">Motor Stop: </span>
+            <span click.delegate="cmd('/motor/stop')" class="uri btn btn-link">http://${ip}/motor/stop</span>
+          </div>
+        </article>
+      </div>
+      <div class="pad-1x" show.bind="ip=='UNKNOWN'">
+        <h2 class="pad-1x">Not connected to a Pako Bot over WIFI.</h2>
+      </div>
+    </div>
+  </section>
+</template>

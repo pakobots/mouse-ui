@@ -1,0 +1,71 @@
+<html>
+
+<body>
+    <script>
+        document.addEventListener('click', function (event) {
+            navigator.bluetooth.requestDevice({
+                //enable this and disable filters to allow any device to connect
+                acceptAllDevices:false,
+                optionalServices:['00006f62-6f72-6576-6f6c-736e616d7568', 
+                '000000ff-0000-1000-8000-00805f9b34fb', 0x00FF, 0xFF01],
+                //'00006f62-6f72-6576-6f6c-736e616d7568'
+                filters: [{
+                    //0x00ff, 0xff01, '000000ff-0000-1000-8000-00805f9b34fb'
+                    //'00006f62-6f72-6576-6f6c-736e616d7568'
+                    services: ['00006f62-6f72-6576-6f6c-736e616d7568']
+                }]
+            })
+                .then(device => device.gatt.connect())
+                .then(server => {
+                    setTimeout(()=>{
+                        console.log('getting primary service', server);
+                        server.getPrimaryServices().then((service)=>{
+                            console.log('MADE IT TO THE SERVICE ROUND');
+                        }).catch((err)=>{
+                            console.log(err);
+                        })
+                    },2000);
+                })
+                .catch(error => { console.log(error); });
+        });
+
+        // console.log(navigator.bluetooth);
+
+
+        // navigator.bluetooth.requestLEScan({
+        //     filters: [{
+        //         manufacturerData: {
+        //             0x004C: {
+        //                 dataPrefix: new Uint8Array([
+        //                     0x02, 0x15, // iBeacon identifier.
+        //                     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  // My beacon UUID.
+        //                 ])
+        //             }
+        //         }
+        //     }],
+        //     options: {
+        //         keepRepeatedDevices: true,
+        //     }
+        // }).then(() => {
+        //     navigator.bluetooth.addEventListener('advertisementreceived', event => {
+        //         let appleData = event.manufacturerData.get(0x004C);
+        //         if (appleData.byteLength != 23) {
+        //             // Isn’t an iBeacon.
+        //             console.log('isnt a beacon');
+        //             return;
+        //         }
+        //         let major = appleData.getUint16(18, false);
+        //         let minor = appleData.getUint16(20, false);
+        //         let txPowerAt1m = -appleData.getInt8(22);
+        //         let pathLossVs1m = txPowerAt1m - event.rssi;
+
+        //         console.log(major, minor, pathLossVs1m);
+        //     });
+        // }).error((err)=>{
+        //     console.log(err);
+        // });
+        
+    </script>
+</body>
+
+</html>

@@ -4,6 +4,8 @@
 @import './about.css';
 @import './drive.css';
 @import './code.css';
+@import './api.css';
+@import './settings.css';
 @import './animation.css';
+@import './disconnect.css';
 @import './scan.css';
-@import './loading-animation.css';

@@ -3,16 +3,23 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+  padding-top:0;
 }
 
 .about .body {
   text-align: center;
 }
 
-.about .title{
-  font-size:2em;
+.about .title img {
+  width: 250px;
 }
 
-.about .title img{
-  width:250px;
+.about .copyright {
+  font-size: smaller;
+}
+
+.about .copyright a {
+  text-decoration: none;
+  font-weight: normal;
+  color: black;
 }
