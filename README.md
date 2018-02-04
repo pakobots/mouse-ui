@@ -12,7 +12,7 @@ Before you start, make sure you have a recent version of [NodeJS](http://nodejs.
 From the project folder, execute the following commands:
 
 ```shell
-npm install # or: yarn install
+npm install 
 ```
 
 This will install all required dependencies, including a local version of Webpack that is going to
