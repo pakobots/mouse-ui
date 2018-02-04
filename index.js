@@ -10,6 +10,6 @@ var sslOptions = {
   };
 
 var server = express();
-server.use(express.static('./'));
-http.createServer(server).listen(8080);
-//https.createServer(sslOptions, server).listen(8443)
+server.use(express.static('./www'));
+//http.createServer(server).listen(8080);
+https.createServer(sslOptions, server).listen(8443)
