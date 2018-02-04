@@ -82,8 +82,8 @@ export class Scan {
     global.robot.connection = undefined;
     global.robot.meta = undefined;
 
-    setTimeout(() => {
-      this.scan();
-    }, 500);
+    // setTimeout(() => {
+    //   this.scan();
+    // }, 500);
   }
 }

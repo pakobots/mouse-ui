@@ -54,10 +54,10 @@
     <splash density="port-mdpi" platform="android" src="res/screens/android/screen-mdpi-portrait.png" />
     <splash density="port-hdpi" platform="android" src="res/screens/android/screen-hdpi-portrait.png" />
     <splash density="port-xhdpi" platform="android" src="res/screens/android/screen-xhdpi-portrait.png" />
-    <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-ble-central" spec="^1.1.4" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-networkinterface" spec="^1.2.0" />
+    <engine name="android" spec="^7.0.0" />
 </widget>
