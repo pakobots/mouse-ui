@@ -51,3 +51,12 @@ From the project folder, execute the following commands:
 ```shell
 cordova build
 ```
+
+### For the masochistic: Apple Deployments :(
+
+Expect to spend an hour or more getting from the desktop to the app store.
+Watch email for any messages with bundle errors. There is no history on itunes connect. Why didn't my build show?
+info.plist add NSBluetoothPeripheralUsageDescription key
+1024x1024 icon and execute npm run icons
+Signing key issues. Uncheck the manage signing keys and check it again. Talk about a bug!!
+Yeah, not an apple fan :(
