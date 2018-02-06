@@ -122,6 +122,7 @@
         "bootstrap": "3.3.7",
         "cordova": "^8.0.0",
         "cordova-android": "^7.0.0",
+        "cordova-icon": "^0.11.0",
         "cordova-ios": "~4.5.4",
         "cordova-plugin-ble-central": "^1.1.4",
         "cordova-plugin-compat": "^1.2.0",
