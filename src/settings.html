@@ -22,20 +22,20 @@
         <article>
           <h2>General</h2>
           <div><label>Name</label><input type="text" value.bind="name" /></div>
-          <div><button class="btn">Apply General Setting</button></div>
+          <div><button class="btn" click.delegate="setName()">Apply General Setting</button></div>
         </article>
         <article>
           <h2>Wifi</h2>
-          <div><label>SSID</label><input type="text" value.bind="name" /></div>
-          <div><label>Password</label><input type="text" value.bind="name" /></div>
-          <div><button class="btn">Apply Wifi Settings</button></div>
+          <div><label>SSID</label><input type="text" value.bind="wifiSSID" /></div>
+          <div><label>Password</label><input type="text" value.bind="wifiPass" /></div>
+          <div><button class="btn" click.delegate="setWifi()">Apply Wifi Settings</button></div>
         </article>
-        <article>
+        <!-- <article>
           <h2>Motor</h2>
           <div><label>Left Direction</label> forward backward</div>
           <div><label>Right Direction</label> forward backward</div>
           <div><button class="btn">Apply Motor Settings</button></div>
-        </article>
+        </article> -->
         <article>
           <h2>Test</h2>
           <div><button class="btn" click.delegate="light('red')"><i class="fa fa-lightbulb-o" class.bind="color.red ? 'active':''"></i>Red Light</button></div>

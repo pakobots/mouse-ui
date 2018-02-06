@@ -8,6 +8,8 @@ export default class SettingsView {
     this.robot = global.robot.connection;
     this.robot.speed(0, 0);
     this.robot.color(0, 0, 0);
+    this.wifiPass = '';
+    this.wifiSSID = '';
     this.name = this.robot.name();
     this.color = {
       red: 0,
@@ -25,6 +27,15 @@ export default class SettingsView {
       this.robot.speed(0, 0);
       this.robot.color(0, 0, 0);
     }
+  }
+
+  setName() {
+    this.robot.setName(this.name);
+  }
+
+  setWifi() {
+    console.log('set wifi');
+    this.robot.setWifi(this.wifiSSID, this.wifiPass);
   }
 
   motor(right) {

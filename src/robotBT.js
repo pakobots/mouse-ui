@@ -32,6 +32,15 @@ export default class RobotBT {
     return this.device.name;
   }
 
+  setName(name) {
+    this.device.name = name;
+    return this._send('N' + name);
+  }
+
+  setWifi(ssid, pass) {
+    return this._send('W' + ssid + '|' + pass);
+  }
+
   speed(leftPwr, rightPwr) {
     if (leftPwr == 0 && rightPwr == 0) {
       this._send('MS');

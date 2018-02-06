@@ -40,7 +40,6 @@ export class Drive {
       this.robot.speed(0, 0);
       this.manager.destroy();
     }
-    console.log('detached drive');
   }
 
   setColor(color) {

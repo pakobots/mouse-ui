@@ -106,7 +106,6 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       // {from: 'static/img', to: 'img'},
       {from: 'static/media', to: 'media'},
       {from: 'static/img', to: 'img'},
-      {from: 'node_modules/codemirror', to: 'cm'},
       {from: 'node_modules/monaco-editor', to:'monaco-editor'}
       // {from: 'node_modules/tern', to: 'cm/tern'},
       // {from: 'node_modules/acorn', to: 'cm/tern/acorn'}
