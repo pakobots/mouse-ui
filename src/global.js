@@ -26,7 +26,7 @@ export default {
       port: 80
     }
   },
-  upgrade(){
+  upgrade() {
     // http.fetch('http://localhost:8080/robot.bin').then((data)=>data.arrayBuffer()).then((data)=>{
     //   http.fetch('http://10.1.1.122/upgrade/'+data.byteLength,{
     //     method: 'post',
@@ -36,15 +36,22 @@ export default {
     //   console.log(err);
     // });
   },
-  getCapabilities() {},
+  getCapabilities() { },
   getLocalIP() {
+    console.log(this);
     return new Promise((resolve, reject) => {
       window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
-      let noop = () => {};
+      let noop = () => { };
       let pc = new RTCPeerConnection({
         iceServers: []
       });
-      pc.createDataChannel("");
+      let timeout = setTimeout(() => {
+        this.wifi.ip = undefined;
+        this.wifi.enabled = false;
+        pc.onicecandidate = noop;
+        resolve();
+      }, 1000);
+      pc.createDataChannel('');
       pc.createOffer(pc.setLocalDescription.bind(pc), noop);
       pc.onicecandidate = (ice) => {
         if (!ice || !ice.candidate || !ice.candidate.candidate) {
@@ -57,6 +64,7 @@ export default {
         this.wifi.ip = ip;
         this.wifi.enabled = true;
         pc.onicecandidate = noop;
+        clearTimeout(timeout);
         resolve(ip);
       };
     });

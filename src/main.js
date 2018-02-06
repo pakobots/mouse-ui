@@ -6,19 +6,37 @@ import global from './global';
 import BT from './bt';
 import 'babel-polyfill';
 
-document.addEventListener("deviceready", () => {
-  if (window['ble']) {
-    let bots = [];
-    global.ble.enabled = true;
-    global.ble.service = new BT(window.ble);
-  }
-}, false);
+let p = !cordovaLoaded ? undefined : new Promise((resolve, reject) => {
+  document.addEventListener("deviceready", () => {
+    if (window['ble']) {
+      let bots = [];
+      global.ble.enabled = true;
+      global.ble.service = new BT(window.ble);
+    }
+    if (window['networkinterface'] && navigator) {
+      let state = navigator.connection.type;
+      global.wifi.enabled = (state == Connection.WIFI || state == Connection.ETHERNET);
+      if (global.wifi.enabled) {
+        networkinterface.getWiFiIPAddress((ip) => {
+          global.wifi.ip = ip;
+          resolve();
+        });
+      } else {
+        resolve();
+      }
+    } else {
+      resolve();
+    }
+  }, false);
+}).then();
 
 export async function configure(aurelia) {
   aurelia.use.standardConfiguration().developmentLogging();
-
-  // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
   await aurelia.start();
-  await global.getLocalIP();
+  if (cordovaLoaded) {
+    await p;
+  } else {
+    await global.getLocalIP();
+  }
   await aurelia.setRoot(PLATFORM.moduleName('app'));
 }

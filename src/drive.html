@@ -7,7 +7,7 @@
     <div>
       <div class="tiles" ref="colorTiles">
         <div class="color-tile" css="background-color:${color};" 
-        repeat.for="color of colors" click.delegate="setColor(color)"></div>
+        repeat.for="color of colors" click.trigger="setColor(color)"></div>
       </div>
     </div>
   </section>

@@ -10,11 +10,10 @@ export class DisconnectView {
       location.hash='#/scan';
     }
     this.robot.close().then(() => {
-      console.log('ready to scan. robot disconnected');
       global.robot.connection = undefined;
       setTimeout(() => {
         location.hash = '#/scan';
-      }, 1000);
+      }, 1500);
     }).catch((err)=>{
       console.log(err);
     });

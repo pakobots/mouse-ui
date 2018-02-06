@@ -2,21 +2,21 @@
   <section class="au-animate code">
     <div class="display">
       <div class="flex pad-1x flex-bottom" style="padding-left:6em;">
-        <div click.delegate="play()" class="btn btn-disk">
+        <div click.trigger="play()" class="btn btn-disk">
           <i class="fa" class.bind="running ? 'fa-stop' : 'fa-play'"></i>
         </div>
-        <div click.delegate="pause()" class="btn btn-disk">
+        <div click.trigger="pause()" class="btn btn-disk">
           <i class="fa fa-pause"></i>
         </div>
-        <div click.delegate="step()" class="btn btn-disk">
+        <div click.trigger="step()" class="btn btn-disk">
           <i class="fa fa-step-forward"></i>
         </div>
       </div>
       <div ref="editorWindow" class="editor"></div>
       <div class="editor-helper-panel">
         <div class="flex btn-tab-container">
-          <div class.bind="view=='console' ? 'btn-tab-selected' : ''" class="btn btn-tab" click.delegate="view='console'">console</div>
-          <div class.bind="view=='errors' ? 'btn-tab-selected' : ''" class="btn btn-tab" click.delegate="view='errors'">errors</div>
+          <div class.bind="view=='console' ? 'btn-tab-selected' : ''" class="btn btn-tab" click.trigger="view='console'">console</div>
+          <div class.bind="view=='errors' ? 'btn-tab-selected' : ''" class="btn btn-tab" click.trigger="view='errors'">errors</div>
         </div>
         <div class="flex flex-grow" show.bind="view=='console'">
           <textarea ref="consoleWindow" class="flex-grow"></textarea>
